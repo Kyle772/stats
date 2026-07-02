@@ -17,3 +17,8 @@ pnpm install
 pnpm build:frontend
 mkdir -p apps/backend/.vercel/output/static/frontend/
 cp -RP apps/frontend/build/. apps/backend/.vercel/output/static/frontend/
+
+# When deploying from the monorepo root, Vercel expects build output here.
+mkdir -p .vercel
+rm -rf .vercel/output
+cp -RP apps/backend/.vercel/output .vercel/output
