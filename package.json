@@ -1,0 +1,46 @@
+{
+  "name": "@stats-organization/root",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+  "devDependencies": {
+    "@eslint/compat": "2.1.0",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.60.0",
+    "@types/node": "24.13.2",
+    "@vitest/coverage-v8": "catalog:default",
+    "eslint": "10.4.1",
+    "eslint-import-resolver-typescript": "4.4.5",
+    "eslint-plugin-import-x": "4.16.2",
+    "eslint-plugin-jsdoc": "63.0.2",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.6.0",
+    "husky": "9.1.7",
+    "knip": "6.16.1",
+    "lint-staged": "17.0.7",
+    "prettier": "3.8.4",
+    "turbo": "2.9.18",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.61.0",
+    "vitest": "catalog:default"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "build:packages": "turbo run build --filter=./packages/*",
+    "build:frontend": "turbo run build --filter=./apps/frontend",
+    "dev:frontend": "pnpm run --filter=./apps/frontend dev",
+    "test": "vitest",
+    "test:coverage": "vitest --config vitest.config.coverage.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "turbo run lint",
+    "lint:eslint": "eslint",
+    "lint:eslint:fix": "eslint --fix",
+    "lint:knip": "knip",
+    "typecheck": "turbo run typecheck"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,json,jsonc,yaml,yml}": "prettier --write"
+  }
+}
